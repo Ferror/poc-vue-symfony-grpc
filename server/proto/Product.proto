@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option php_namespace = "Ferror\\GRPC\\Product";
+option php_metadata_namespace = "Ferror\\GRPC\\ProductMetadata";
+
+package package;
+
+message Product {
+    string identifier = 1;
+    string name = 2;
+    string price = 3;
+}
+
+service ProductService {
+    rpc Create(Product) returns (Product);
+}

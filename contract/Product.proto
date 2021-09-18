@@ -5,12 +5,14 @@ option php_metadata_namespace = "Ferror\\GRPC\\ProductMetadata";
 
 package package;
 
+service ProductService {
+    rpc create(void) returns (Product);
+}
+
+message void {}
+
 message Product {
     string identifier = 1;
     string name = 2;
     string price = 3;
-}
-
-service ProductService {
-    rpc Create(Product) returns (Product);
 }

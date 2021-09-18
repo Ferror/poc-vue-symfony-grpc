@@ -1,7 +1,8 @@
 ci:
 	composer check
-client:
-	protoc --js_out=client/src/proto client/proto/Product.proto
-server:
-	protoc --php_out=server/src --php-grpc_out=server/src proto/*
 
+client:
+	protoc --js_out=client/src/proto contract/*.proto
+
+server:
+	protoc --php_out=server/src --php-grpc_out=server/src contract/*.proto

@@ -13,7 +13,6 @@
         "ext-sockets": "*",
         "ext-zip": "*",
         "spiral/roadrunner-grpc": "^1.5",
-        "symfony/console": "5.3.*",
         "symfony/dotenv": "5.3.*",
         "symfony/flex": "^1.15",
         "symfony/framework-bundle": "5.3.*",

@@ -6,7 +6,7 @@ use Spiral\RoadRunner\Worker;
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 $server = new Server(null, [
-    'debug' => true, // optional (default: false)
+    'debug' => false, // optional (default: false)
 ]);
 
 $worker = \method_exists(Worker::class, 'create')

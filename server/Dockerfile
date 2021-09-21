@@ -49,9 +49,12 @@ COPY .docker/nginx.conf         /etc/nginx/nginx.conf
 COPY .docker/supervisor.conf    /etc/supervisor/conf.d/supervisor.conf
 COPY .docker/php.ini            /etc/php/8.0/cli/php.ini
 COPY .docker/php.ini            /etc/php/8.0/fpm/php.ini
-
-COPY --from=spiralscout/roadrunner:2.4.2 /usr/bin/rr /usr/sbin/rr
+COPY .docker/rr-grpc            /usr/bin/rr
 
 WORKDIR /app
 
 EXPOSE 80
+EXPOSE 2112
+EXPOSE 6001
+EXPOSE 6061
+EXPOSE 50055

@@ -1,12 +1,9 @@
 <?php
 namespace Ferror;
-/**
- * Sample GRPC PHP server.
- */
 
+use Ferror\GRPC\Product\EchoInterface;
+use Ferror\GRPC\Product\Message;
 use Spiral\GRPC\ContextInterface;
-use Ferror\Service\EchoInterface;
-use Ferror\Service\Message;
 
 class EchoService implements EchoInterface
 {

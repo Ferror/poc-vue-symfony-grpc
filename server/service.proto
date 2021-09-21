@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option php_namespace = "Ferror\\GRPC\\Product";
+option php_metadata_namespace = "Ferror\\GRPC\\ProductMetadata";
+
 package service;
 
 service Echo {

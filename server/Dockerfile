@@ -50,6 +50,7 @@ COPY .docker/supervisor.conf    /etc/supervisor/conf.d/supervisor.conf
 COPY .docker/php.ini            /etc/php/8.0/cli/php.ini
 COPY .docker/php.ini            /etc/php/8.0/fpm/php.ini
 COPY .docker/rr-grpc            /usr/bin/rr
+COPY .docker/grpcurl            /usr/bin/grpcurl
 
 WORKDIR /app
 

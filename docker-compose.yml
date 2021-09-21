@@ -22,19 +22,20 @@ services:
         volumes:
             - ./:/app:delegated
 
-    vue:
-        build:
-            context: web/.
-        command: ["make", "run"]
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.vue.rule=Host(`vue.domain.localhost`)"
-        volumes:
-            - ./web:/app:delegated
-        depends_on:
-            - traefik
-        networks:
-            - ferror
+# Not yet useful
+#    vue:
+#        build:
+#            context: web/.
+#        command: ["make", "run"]
+#        labels:
+#            - "traefik.enable=true"
+#            - "traefik.http.routers.vue.rule=Host(`vue.domain.localhost`)"
+#        volumes:
+#            - ./web:/app:delegated
+#        depends_on:
+#            - traefik
+#        networks:
+#            - ferror
 
     app:
         build:

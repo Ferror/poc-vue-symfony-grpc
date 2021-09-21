@@ -16,27 +16,36 @@ services:
             ferror:
                 ipv4_address: 192.168.10.10
 
+    admin:
+        build:
+            context: admin/.
+        volumes:
+            - ./:/app:delegated
+
     vue:
-        image: ferror/vue-image:14
+        build:
+            context: web/.
         command: ["make", "run"]
         labels:
             - "traefik.enable=true"
             - "traefik.http.routers.vue.rule=Host(`vue.domain.localhost`)"
         volumes:
-            - ./client:/app:delegated
+            - ./web:/app:delegated
         depends_on:
             - traefik
         networks:
             - ferror
 
     app:
-        image: ferror/symfony-image:8.0-grpc
+        build:
+            context: server/.
         volumes:
             - ./server:/app:delegated
         command: ["make", "run"]
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.symfony.rule=Host(`symfony.malcherczyk.localhost`)"
+            - "traefik.http.routers.symfony.rule=Host(`symfony.domain.localhost`)"
+            - "traefik.http.services.symfony.loadbalancer.server.scheme=h2c"
         depends_on:
             - traefik
         networks:

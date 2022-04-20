@@ -1,7 +1,16 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
-import Client from '@/client/product.js'
+import Echo from '@/client/service.js'
 
-Client.create()
+Echo
+    .ping()
+    .then(function (data) {
+        console.log('Success');
+        console.log(data);
+    })
+    .catch(function (data) {
+        console.log('Failed');
+        console.log(data);
+    });
 
 createApp(App).mount('#app')

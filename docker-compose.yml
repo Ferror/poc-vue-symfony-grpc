@@ -22,6 +22,16 @@ services:
         volumes:
             - ./:/app:delegated
 
+    envoy:
+        image: envoyproxy/envoy:v1.9.0
+        command: ["envoy", "-c", "/etc/envoy/envoy.yaml"]
+        volumes:
+            - ./envoy/envoy.yaml:/etc/envoy/envoy.yaml
+        ports:
+            - 8080:8080
+            - 9901:9901
+
+# Not yet useful
     vue:
         build:
             context: web/.

@@ -9,3 +9,6 @@ client:
 
 server:
 	protoc --php_out=server/src --php-grpc_out=server/src contract/*.proto
+
+ping:
+	grpcurl -plaintext -d '{"msg": "Hello RPC"}' -proto "service.proto" localhost:8080 service.Echo/Ping
